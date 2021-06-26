@@ -33,10 +33,17 @@ const TodoContainer = () => {
     ])
   }
 
-  const addTodoItem = title => {
+  const editTodo = id => {
+    console.log("Editing", id)
+  }
+
+  const addTodoItem = (title, cost, currency) => {
+    console.log(title, cost, currency)
     const newTodo = {
       id: uuidv4(),
       title: title,
+      cost: cost,
+      currency: currency,
       completed: false,
     }
     setTodos([...todos, newTodo])
@@ -78,6 +85,7 @@ const TodoContainer = () => {
               <TodosList
                 todos={todos}
                 handleChangeProps={handleChange}
+                editTodoProps={editTodo}
                 deleteTodoProps={delTodo}
                 setUpdate={setUpdate}
               />
